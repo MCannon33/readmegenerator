@@ -1,70 +1,77 @@
-const fs = require ('fs')
-const inquirer = require ('inquirer')
-const generatePage = require('./src/readme-template');
+const fs = require("fs");
+const inquirer = require("inquirer");
+const generateMarkdown = require("./src/readme-template");
 
-const promptUser = () => {
-    return inquirer.promt ([
-        //Title 
-        {
-            type: 'input', 
-            name: 'title',
-            message: 'What is your project title?',
-        },
-         //Description
-        {
-            type: 'input',
-            name: 'description',
-            message: 'Enter a description of your project',
-            },
-      //Installation 
-        {
-            type: 'input',
-            name: 'instructions',
-            message: 'Enter installation instructions',
-            },
-        //Usage
-         {
-            type: 'input',
-            name: 'usage',
-            message: 'Enter usage information',
-            },
+inquirer
+  .prompt([
+    //Title
+    {
+      type: "input",
+      name: "title",
+      message: "What is your project title?",
+    },
+    //Description
+    {
+      type: "input",
+      name: "description",
+      message: "Enter a description of your project",
+    },
+    //Installation
+    {
+      type: "input",
+      name: "instructions",
+      message: "Enter installation instructions",
+    },
+    //Usage
+    {
+      type: "input",
+      name: "usage",
+      message: "Enter usage information",
+    },
 
-        //Contributing
-         {
-            type: 'input',
-            name: 'contribution',
-            message: 'Enter contribution guidelines',
-            },
-         //Test
-         {
-            type: 'input',
-            name: 'tests',
-            message: 'Enter test instructions',
-            },   
-        //Licenses
-            {
-                type: 'checkbox',
-                name: 'license',
-                message: 'Select a license for your application (Check one)',
-                choices: ['Apache', 'BSD', 'Eclipse']
-              },    
-            
-         //GitHub  
-              {
-            type: 'input',
-            name: 'github',
-            message: 'Enter your GitHub Username',
-            },
+    //Contributing
+    {
+      type: "input",
+      name: "contribution",
+      message: "Enter contribution guidelines",
+    },
+    //Test
+    {
+      type: "input",
+      name: "tests",
+      message: "Enter test instructions",
+    },
+    //Licenses
+    {
+      type: "list",
+      name: "license",
+      message: "Select a license for your application (Check one)",
+      choices: ["Apache", "BSD", "Eclipse"],
+    },
 
-         //Email Address 
-         {
-            type: 'input',
-            name: 'github',
-            message: 'Enter your GitHub Username',
-            },  
-            
-         //Table of Contents (have no clue what to do here)    
-   
-};
+    //GitHub
+    {
+      type: "input",
+      name: "github",
+      message: "Enter your GitHub Username",
+    },
 
-promptUser()
+    //Email Address
+    {
+      type: "input",
+      name: "email",
+      message: "Enter your email address",
+    },
+
+    //Table of Contents (have no clue what to do here)
+  ])
+  .then((answers) => {
+    console.log(answers);
+    const readme = generateMarkdown(answers);
+    console.log(readme);
+
+    fs.writeFile("generated.md", readme, function (err) {
+      if (err) return console.log(err);
+      console.log("Cool ReadMe");
+    });
+  });
