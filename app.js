@@ -46,7 +46,11 @@ inquirer
       type: "list",
       name: "license",
       message: "Select a license for your application (Check one)",
-      choices: ["Apache", "BSD", "Eclipse"],
+      choices: [
+        { name: "Apache", values: 0 },
+        { name: "BSD", values: 1 },
+        { name: "Eclipse", values: 2 },
+      ],
     },
 
     //GitHub
@@ -69,6 +73,12 @@ inquirer
     console.log(answers);
     const readme = generateMarkdown(answers);
     console.log(readme);
+
+    // .then ((responses)=> {
+    //     const licenseBadge = generateBadge(values);
+    // if (responses.license === 0)
+    // console.log("Apache")
+    // }
 
     fs.writeFile("generated.md", readme, function (err) {
       if (err) return console.log(err);
