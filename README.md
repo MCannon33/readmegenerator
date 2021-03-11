@@ -8,6 +8,8 @@ _NODE.JS GOALS_
 
 ---
 
-[Github](https://github.com/MCannon33/readmegenerator)
-[Video](https://vimeo.com/522186639)
-[How to create a Professional README](./readme-guide.md)
+- [Github](https://github.com/MCannon33/readmegenerator)
+
+- [Video](https://vimeo.com/522186639)
+
+- [How to create a Professional README](./readme-guide.md)
