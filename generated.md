@@ -1,4 +1,4 @@
-# kkk
+# Test My ReadMe Generator
 ##Table of Contents
 * 1.[Description](#description)
 * 2.[Instructions](#instructions)
@@ -10,24 +10,24 @@
 
 
 ## Description 
-kkk
+Build a README super quick!
 ___
 ## Instructions 
-kkk
+Use npm install
 ___
 ## Usage
-lll
+On the command line enter app.js
 ___
 ## Contribution
-lll
+NA
 ___
 ## Tests
-lll
+KO with app.js
 ___
 ## License
-0
+Apache
 ___
 ## Questions
 For more information please contact me at: 
-[GitHub](kkk)
-kkkk
+[GitHub](MCannon33)
+marialcannon@gmail.com
